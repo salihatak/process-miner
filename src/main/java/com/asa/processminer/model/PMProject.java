@@ -12,11 +12,14 @@ import javax.persistence.Id;
 @Entity
 @RequiredArgsConstructor
 @Getter @Setter
-public class PMProject {
+public class PMProject extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long projectId;
+
     public String projectName;
+
+    public String description;
 
 }

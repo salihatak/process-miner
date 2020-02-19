@@ -8,14 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class PMProjectService {
+public interface  PMProjectService {
 
-    final PMProjectRepository pmProjectRepository;
+    public List<PMProject> findAll();
 
-    @Transactional(readOnly = true)
-    public List<PMProject> findAll() {
-        return pmProjectRepository.findAll();
-    }
 }
