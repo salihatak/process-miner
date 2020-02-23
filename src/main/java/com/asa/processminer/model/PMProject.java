@@ -1,25 +1,19 @@
 package com.asa.processminer.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Builder
+@Data
 @Entity
-@RequiredArgsConstructor
-@Getter @Setter
+@Table(name="pm_project")
+@AllArgsConstructor @NoArgsConstructor
 public class PMProject extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long projectId;
-
     public String projectName;
-
     public String description;
-
 }
