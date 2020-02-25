@@ -1,21 +1,16 @@
 package com.asa.processminer.service;
 
 import com.asa.processminer.model.PMProject;
-import com.asa.processminer.repository.PMProjectRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import com.asa.processminer.dto.PMProjectDTO;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class PMProjectService {
+public interface  PMProjectService {
 
-    final PMProjectRepository pmProjectRepository;
+    public List<PMProject> findAll();
 
-    @Transactional(readOnly = true)
-    public List<PMProject> findAll() {
-        return pmProjectRepository.findAll();
-    }
+    public PMProject createProject(PMProjectDTO pmProject);
+
+    public PMProject updateProject(long projectId, PMProjectDTO pmProject);
 }
