@@ -1,5 +1,6 @@
 package com.asa.processminer.service.impl;
 
+import com.asa.processminer.exception.ResourceNotFoundException;
 import com.asa.processminer.model.PMProject;
 import com.asa.processminer.dto.PMProjectDTO;
 import com.asa.processminer.repository.PMProjectRepository;
@@ -31,13 +32,10 @@ public class PMProjectServiceImpl implements PMProjectService {
     }
 
     public PMProject updateProject(long projectId, PMProjectDTO pmProject) {
-        Optional<PMProject> project = pmProjectRepository.findById(projectId);
-        if(project.isPresent()){
-            PMProject p = project.get();
+        return pmProjectRepository.findById(projectId).map(p -> {
             p.setProjectName(pmProject.getProjectName());
             p.setDescription(pmProject.getDescription());
-            return pmProjectRepository.save(p);
-        }
-        return null;
+            return p;
+        }).orElseThrow(()-> new ResourceNotFoundException("Project [projectId=" + projectId + "] can't be found"));
     }
 }

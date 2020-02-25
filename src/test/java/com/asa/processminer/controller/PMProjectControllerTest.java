@@ -1,14 +1,10 @@
 package com.asa.processminer.controller;
 
-import com.asa.processminer.config.WebSecurityConfig;
 import com.asa.processminer.config.WebSecurityConfigTest;
-import com.asa.processminer.model.PMProject;
 import com.asa.processminer.dto.PMProjectDTO;
+import com.asa.processminer.model.PMProject;
 import com.asa.processminer.service.PMProjectService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -22,11 +18,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.*;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.hamcrest.Matchers.is;
 
 
 @ContextConfiguration(classes = {PMProjectController.class, PMProjectService.class})

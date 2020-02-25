@@ -23,8 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder().encode("a")).roles("ADMIN");
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
-
+//    protected void configure(HttpSecurity http) throws Exception {
+//
 //        http
 //                .csrf().disable()
 //                .authorizeRequests()
@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .csrf().disable()
 //                .formLogin().disable();
-    }
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
