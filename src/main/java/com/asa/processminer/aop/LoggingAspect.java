@@ -11,5 +11,6 @@ public class LoggingAspect {
     @Before("execution(public String get*())")
     public void loggingAdvice() {
         log.info("advice run.. getName method called");
+        log.info("test");
     }
 }
