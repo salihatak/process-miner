@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog title="Upload Data">
+		<content>
+			<f:SimpleForm layout="ResponsiveGridLayout" >
+				<f:content>
+					<Label text="Project Name *" />
+					<Input placeholder="Enter Project Name..." value="{/project/pname}" />
+					<Label text="Project Description " />
+					<TextArea placeholder="Enter Project Description..." rows="3" value="{/project/pdescription}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button type="Accept" text="Save" press="onProjectSave"
+				icon="sap-icon://save">
+			</Button>
+			<Button type="Reject" text="Cancel" press="onProjectClose"
+				icon="sap-icon://decline">
+			</Button> 
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

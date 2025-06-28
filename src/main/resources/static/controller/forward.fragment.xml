@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Upload Data">
+		<content>
+			<TextArea width="100%" value="{/processData}" rows="10">
+			</TextArea>
+		</content>
+		<buttons>
+			<Button type="Accept" text="Upload" press="onUploadData"
+				icon="sap-icon://upload">
+			</Button>
+			<Button type="Reject" text="Cancel" press="onUploadClose"
+				icon="sap-icon://decline">
+			</Button> 
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

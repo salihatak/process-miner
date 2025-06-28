@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>PMInterface</title>
+
+		<script src="/script/cytoscape.min.js"></script>
+		<script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
+		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.5.0/cytoscape-dagre.js"></script>
+<!-- 			data-sap-ui-theme="sap_bluecrystal" -->
+<!-- 			data-sap-ui-theme="sap_belize" -->
+
+		<script id="sap-ui-bootstrap" 
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-cachebuster/sap-ui-core.js"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"			
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-appCacheBuster="./"
+			data-sap-ui-resourceroots='{"PMInterface": ""}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						id : "idPMInterface",
+						height : "100%",
+						name : "PMInterface"
+					})
+				}).placeAt("content");
+			});
+		</script>
+
+		<style>
+		.sapUiBlockLayoutSizeL .sapUiBlockCellContent {
+			padding: 1rem !important;
+		}
+		
+		.sapMImageContentImageIcon.sapUiIcon {
+			font-size: 3rem !important;
+		}
+		
+		.sapSuiteStackedMCBarSemanticColorGood {
+		    background-color: #14A9D5 !important;
+		}
+		</style>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

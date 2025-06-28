@@ -1,0 +1,100 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:ux="sap.uxap" 
+	xmlns="sap.m"
+	xmlns:m="sap.suite.ui.microchart"
+	controllerName="PMInterface.controller.View1">
+	<App id="idVariantExplorer">
+	<NavContainer id="navCon">
+		<Page id="catalog" title="Process Mining" showHeader="true" >
+			<headerContent>
+<!-- 				<Button id="presentButton" icon="sap-icon://ppt-attachment" text="VIS BPM Presentation" press="handlePresent" /> -->
+<!-- 				<ToolbarSpacer /> -->
+<!-- 				<Button id="languageButton" text="Language" press="handleOpen" /> -->
+			</headerContent>
+			<content>
+				<Image id="headerImage" src="resource/header_1.jpg" width="100%" />
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell id="launchpad" >
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</content>
+			<footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Accept" text="New Analysis" press="newAnalysis" icon="sap-icon://business-objects-experience"></Button>
+				</OverflowToolbar>
+			</footer>
+		</Page>	
+		<Page id="variantPage" title="Variant Explorer" navButtonPress="onBack"
+			showNavButton="true" navButtonType="Back">
+			<headerContent>
+			    <Button text="Upload Data" press="onUploadDataDialog" icon="sap-icon://upload" />
+			    <Button type="Emphasized" text="Save" press="onUploadSaveDialog" icon="sap-icon://save" />
+			    <Button type="Accept" press="onRunWithData" icon="sap-icon://media-play" />
+			</headerContent>		
+			<content>
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell width="3">
+					    	<core:HTML content="&lt;div id='cy' style='width:100%;height: 900px;background-color: white;' &gt;&lt;/div&gt;"  >
+					    	</core:HTML>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell>
+<!-- 					        <List id="variantList" -->
+<!-- 					        	headerText="Variants"  -->
+<!-- 					        	noDataText="Drop list items here"  -->
+<!-- 					        	mode="MultiSelect"  -->
+<!-- 					        	items="{/dataInfo/variants}" -->
+<!-- 					        	growing="true" -->
+<!-- 								growingThreshold="12" -->
+<!-- 								growingScrollToLoad="false"> -->
+<!-- 								<StandardListItem title="{No}" description="Cases: {count}" icon="sap-icon://picture" /> -->
+<!-- 					        </List> -->
+					        <List id="variantList"
+					        	headerText="Variants" 
+					        	noDataText="Drop list items here" 
+					        	mode="MultiSelect" 
+					        	items="{/dataInfo/variants}"
+					        	growing="true"
+								growingThreshold="15"
+								growingScrollToLoad="false">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Variants"/>
+										<ToolbarSpacer/>
+										<Button text="Select All" press="onSelectAll"/>
+										<Button text="Select None" press="onSelectNone"/>
+									</Toolbar>
+								</headerToolbar>
+								<CustomListItem>
+										<FlexBox width="75%" height="3rem" alignItems="Center" justifyContent="SpaceBetween">
+											<items>
+												<Text text="{No} - {count} cases" wrapping="false" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+												<FlexBox alignItems="Center">
+													<items>
+														<m:StackedBarMicroChart size="Responsive" precision="0" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+															<m:bars>
+																<m:StackedBarMicroChartBar valueColor="Good" value="{count}"/>
+																<m:StackedBarMicroChartBar valueColor="Neutral" value="{diff}"/>
+															</m:bars>
+														</m:StackedBarMicroChart>
+													</items>
+												</FlexBox>
+											</items>
+										</FlexBox>
+								</CustomListItem>								
+					        </List>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>					
+		        </l:BlockLayout>
+			</content>
+			</Page>
+		</NavContainer>
+	</App>
+</mvc:View>
